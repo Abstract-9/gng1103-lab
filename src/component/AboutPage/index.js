@@ -7,8 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import leo from './leo.jpg';
-import jfk from './JFK_transparent.webp'
-import among from './among.jpg'
+import builder from './builder.jpg'
+import rick from './rick.png'
 
 class AboutPage extends React.Component {
     render() {
@@ -25,11 +25,11 @@ class AboutPage extends React.Component {
                             <p>Logan - Software Lead</p>
                         </Col>
                         <Col>
-                            <Image className="w-75 h-75" src={among} roundedCircle />
+                            <Image className="w-75 h-75" src={rick} roundedCircle />
                             <p>Moh - Drone Engineer</p>
                         </Col>
                         <Col>
-                            <Image className="w-75 h-75" src={jfk} roundedCircle />
+                            <Image className="w-75 h-75" src={builder} roundedCircle />
                             <p>Piers - Drone Engineer</p>
                         </Col>
                     </Row>
