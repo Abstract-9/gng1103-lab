@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Banner from './component/Banner';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const aboutPage = lazy(() => import('./component/AboutPage'));
+const restaurantPage = lazy(() => import('./component/RestaurantPage'));
+const propsExample = lazy(() => import('./component/PropsExample'));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Banner />
+      <Router>
+          <Suspense fallback={<div>loading...</div>}>
+              <Switch>
+                  <Route exact path={'/'} component={aboutPage}/>
+                  <Route path={'/restaurants'} component={restaurantPage}/>
+                  <Route path={'/propsExample'} component={propsExample}/>
+              </Switch>
+          </Suspense>
+      </Router>
     </div>
   );
 }
